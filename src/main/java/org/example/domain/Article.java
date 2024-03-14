@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 public class Article {
     // Article 은 게시물

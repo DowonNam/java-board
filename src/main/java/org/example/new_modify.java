@@ -1,7 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import org.example.base.boardAppNew;
 
 public class new_modify {
     public static void main(String[] args) {
