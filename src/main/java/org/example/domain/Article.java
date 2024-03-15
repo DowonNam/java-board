@@ -8,8 +8,8 @@ public class Article {
     private String body; // 내용
     private int hit; // 조회수
     private String regDate; // 등록날짜
-    public Article(){
-    }
+
+
     public Article(int id, String title, String body, int hit, String regDate){
         this.id = id;
         this.title = title;
@@ -54,4 +54,19 @@ public class Article {
     public void setBody(String body){
         this.body = body;
     }
+}
+class Comment {
+    private String Inpucommment; // 댓글
+    public Comment(String Inpucommment){
+        this.Inpucommment = Inpucommment;
+    }
+
+    public String getComment() {
+        return Inpucommment;
+    }
+
+    public void setComment(String Comment) {
+        this.Inpucommment = Comment;
+    }
+
 }

@@ -44,9 +44,40 @@ public class ArticleController { // Model + Controller 혼재
         article.increaseHit(); // 뒤에서 만든 함수를 받아 조회수 증가
         articleView.PrintArticleDetail(article);
 
-        System.out.print("상세보기 기능을 선택해주세요(1. 댓글 등록, 2. 추천, 3. 수정, 4. 삭제, 5. 목록으로) : ");
-        int act = Integer.parseInt(scan.nextLine());
-        act(act);
+        boolean loop = true;
+        while (loop) {
+            System.out.print("상세보기 기능을 선택해주세요(1. 댓글 등록, 2. 추천, 3. 수정, 4. 삭제, 5. 목록으로) : ");
+            int act = Integer.parseInt(scan.nextLine());
+            switch (act) {
+                case 1:
+                    Comment commentIn = new Comment();
+                    articleView.showAddComment();
+                    System.out.print("댓글 내용 : ");
+                    String commentInput = scan.nextLine();
+                    articleView.PrintArticleComment(commentIn.getComment(commentInput));
+
+                    System.out.println("댓글이 성공적으로 등록되었습니다.");
+
+                    break;
+                case 2:
+                    articleView.showRecommend();
+                    break;
+                case 3:
+                    articleView.showEdit();
+                    break;
+                case 4:
+                    articleView.showDelete();
+                    break;
+                case 5:
+                    articleView.showList();
+                    System.out.println("상세보기 화면을 빠져나갑니다.");
+                    loop = false;
+                    break;
+                default:
+                    System.out.println("다시 선택해주세요");
+                    break;
+            }
+        }
     }
 
     public void delete() {
@@ -112,7 +143,7 @@ public class ArticleController { // Model + Controller 혼재
         System.out.print("게시물 내용을 입력해주세요 : ");
         String body = scan.nextLine();
 
-        articleRepository.saveArticle(title,body);
+        articleRepository.saveArticle(title, body);
 
         System.out.println("게시물이 등록되었습니다.");
     }
@@ -130,21 +161,5 @@ public class ArticleController { // Model + Controller 혼재
 
     }
 
-    public int act(int n) {
-        Scanner scan = new Scanner(System.in);
-        if (n == 1) {
-            System.out.println("[댓글 추가 가능");
-        } else if (n == 2) {
-            System.out.println("[추천기능]");
-        } else if (n == 3) {
-            System.out.println("[수정기능]");
-        } else if (n == 4) {
-            System.out.println("[삭제기능]");
-        } else if (n == 5) {
-            System.out.println("[목록으로]");
-        }
-        return n;
-
-    }
 
 }

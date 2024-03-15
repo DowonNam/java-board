@@ -32,9 +32,9 @@ public class ArticleRepository {
                 searchList.add(article);
             }
         }
-
         return searchList;
     }
+
     public Article findArticleById(int id) {
         int index = -1;
         for (int i = 0; i < articleList.size(); i++) {
@@ -48,6 +48,7 @@ public class ArticleRepository {
         // 찾은 게 없다면 null 리턴하라(없다고 리턴하라), 객체 타입에서만 사용 가능
         return null;
     }
+
     public void deleteArticle(Article article){
         articleList.remove(article); // arraylist 값은 값을 직접 찾아서 지워주기도 한다
     }
@@ -55,6 +56,7 @@ public class ArticleRepository {
         article.setTitle(newTitle);
         article.setBody(newBody);
     }
+
     public ArrayList<Article> findall(){
         return  articleList;
     }
